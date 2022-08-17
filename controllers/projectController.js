@@ -26,7 +26,7 @@ const addProject = async (req, res) => {
 
     const project = await Project.create(info);
     res.status(200).send(project);
-    console.log(product);
+    console.log(project);
 }
 
 // 2. get all projects
