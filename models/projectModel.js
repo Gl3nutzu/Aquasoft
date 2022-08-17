@@ -36,10 +36,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNULL: false
         },
-        // Travel_required: {
-        //     types: DataTypes.STRING,
-        //     allowNULL: false
-        // },
+         Travel_required: {
+             type: DataTypes.STRING,
+             allowNULL: false
+         },
         Team_members: {
             type: DataTypes.INTEGER,
             allowNULL: false
