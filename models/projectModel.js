@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Project = sequelize.define("project", {
-        // ID: {
-        //     type: DataTypes.INTEGER,
-        //     allowNULL: false
-        // },
         Project_no: {
             type: DataTypes.STRING,
             allowNULL: false
@@ -36,10 +32,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNULL: false
         },
-         Travel_required: {
-             type: DataTypes.STRING,
-             allowNULL: false
-         },
+        Travel_required: {
+            type: DataTypes.STRING,
+            allowNULL: false
+        },
         Team_members: {
             type: DataTypes.INTEGER,
             allowNULL: false

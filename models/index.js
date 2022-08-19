@@ -1,12 +1,15 @@
 const dbConfig = require('../config/dbConfig.js');
 
+
 const { Sequelize, DataTypes } = require('sequelize');
+
 
 const sequelize = new Sequelize (
     dbConfig.DB,
     dbConfig.USER,
     dbConfig.PASSWORD, {
         host: dbConfig.HOST,
+        port: dbConfig.PORT,
         dialect: dbConfig.dialect,
         operatorsAliases: false,
 
@@ -31,8 +34,27 @@ const db = {}
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+db.project = require('./projectModel.js')(sequelize, DataTypes);
+db.interview = require('./interviewModel.js')(sequelize, DataTypes);
+db.candidate = require('./candiatiModel.js')(sequelize, DataTypes);
 
-db.proiect = require('./projectModel.js')(sequelize, DataTypes);
+db.interview.hasMany(db.candidate, {
+    foreignKey: 'Project_id',
+    as: 'candidates'
+});
+db.candidate.belongsTo(db.interview, {
+    foreignKey: 'Project_id',
+    as: 'projects'
+    
+});
+
+db.candidate.belongsToMany(db.project, {
+    through: "candidatiproiecte",
+  });
+  db.project.belongsToMany(db.candidate, {
+    through: "Proiectecandidati",
+  });
+  
 
 db.sequelize.sync({ force: false })
 .then(() => {
