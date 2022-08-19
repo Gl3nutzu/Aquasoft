@@ -12,8 +12,14 @@ app.get('/', (req, res) => {
 })
 
 // routers
-const router = require('./routes/projectRouter.js')
-app.use('/api/projects', router);
+const projectRouter = require('./routes/projectRouter');
+app.use('/api/projects', projectRouter);
+
+const interviewRouter = require('./routes/interviewRouter.js');
+app.use('/api/interviews', interviewRouter);
+
+const candidateRouter = require('./routes/candidateRouter.js');
+app.use('/api/candidates', candidateRouter);
 
 app.listen('3000', () => {
     console.log('Server started on port 3000');
