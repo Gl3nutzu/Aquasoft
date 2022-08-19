@@ -1,7 +1,9 @@
-const db = require('../models')
+const db = require('../models');
+const { getAllCandidates } = require('./candidatiController');
 
 // create main Model
-const Project = db.proiect
+const Project = db.project;
+const Candidate = db.candidate;
 
 // 1. create project
 
@@ -58,10 +60,16 @@ const deleteProject = async (req, res) => {
     res.status(200).send('Project is deleted!');
 }
 
+// legatura
+
+
+
 module.exports = {
     addProject,
     getAllProjects,
     getOneProject,
     updateProject,
-    deleteProject
+    deleteProject,
+   
+    
 }
