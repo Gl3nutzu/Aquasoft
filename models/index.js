@@ -52,7 +52,7 @@ db.candidate.belongsToMany(db.project, {
     through: "candidatiproiecte",
   });
   db.project.belongsToMany(db.candidate, {
-    through: "Proiectecandidati",
+    through: "candidatiproiecte",
   });
   
 
