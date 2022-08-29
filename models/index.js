@@ -38,23 +38,23 @@ db.project = require('./projectModel.js')(sequelize, DataTypes);
 db.interview = require('./interviewModel.js')(sequelize, DataTypes);
 db.candidate = require('./candiatiModel.js')(sequelize, DataTypes);
 
-db.interview.hasMany(db.candidate, {
+db.candidate.hasMany(db.candidate, {
     foreignKey: 'Project_id',
     as: 'candidates'
 });
-db.candidate.belongsTo(db.interview, {
+
+db.interview.belongsTo(db.interview, {
     foreignKey: 'Project_id',
-    as: 'projects'
-    
+    as: 'projects'    
 });
 
 db.candidate.belongsToMany(db.project, {
     through: "candidatiproiecte",
-  });
-  db.project.belongsToMany(db.candidate, {
+});
+db.project.belongsToMany(db.candidate, {
     through: "candidatiproiecte",
-  });
-  
+});
+
 
 db.sequelize.sync({ force: false })
 .then(() => {

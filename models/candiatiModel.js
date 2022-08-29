@@ -24,11 +24,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNULL: false
         },
         Candidate_doc: {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
             allowNULL: true
-        },
-       
-        
+        }
     }); 
     
     return Candidate;
